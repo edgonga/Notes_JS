@@ -103,3 +103,46 @@ numeros.forEach(numero => {
 On another hand, if we want to apply the same logic but with a string, we can do the following instead of --> "numerosNegativos.push":
 
 numerosNegativos += n
+
+
+
+## -----------------> Regex
+
+Given that every input that we receive from html is going to be consider as a string in JS 
+sometimes, we will need to carry on the validation with strings. Here some examples:
+
+const isNegative = () => {
+
+    const num1 = document.getElementById("numb1-input").value
+    const num2 = document.getElementById("numb2-input").value
+    const onlyNegativeNumbers = /^-\d+$/
+    const onlyPositiveNumbers = /^\d+$/
+    
+
+    if (num1.match(onlyNegativeNumbers)) {
+        document.getElementById("result-message").innerHTML = "Hay un numero negativo en el primer numero"
+        return
+    }
+
+    if (num2.match(onlyNegativeNumbers)) {
+        document.getElementById("result-message").innerHTML = "Hay un numero negativo en el segundo numero"
+        return
+    }
+
+    if (!num1.match(onlyPositiveNumbers)) {
+        document.getElementById("result-message").innerHTML = "El formato en el primer numero no es correcto"
+        return
+    }
+
+    if (!num2.match(onlyPositiveNumbers)) {
+        document.getElementById("result-message").innerHTML = "El formato en el segundo numero no es correcto"
+        return
+    }
+   
+    document.getElementById("result-message").innerHTML = "Correcto"
+
+}
+
+In this code we can see how we validate with negative or positive intengers inside a string using match() method and regex.
+Find more regex examples here: https://stackoverflow.com/questions/15814592/how-do-i-include-negative-decimal-numbers-in-this-regular-expression
+
