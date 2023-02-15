@@ -234,26 +234,31 @@ document.getElementById("result-message").innerHTML = result
 ## -----------------> Callbacks
 
 We will see the different ways to write the array method "map()" with its callback
+
+![image](https://user-images.githubusercontent.com/71343560/219028396-0d831610-5d26-484b-88b8-ef8aba7455ce.png)
+
+
+
 ```js
 const nums = [1,2,3,4,5]
 
-const parseToString = function (n) {    
+const parseToString = function (n) {             // In this example as function are consider citizens of first class in JS, we can assign a variable to a function
         return n.toString()
 }
 
-const numsToString = nums.map( parseToString )
+const numsToString = nums.map( parseToString )  // And this first class citizen function will be called as callback inside the map method
+                                                // numsToString is the new array that the map() method return by itself
 
-const numsToString = nums.map( function (n) {    
-        return n.toString()
-} )
 ```
 -----------OR----------------
 ```js
-const numsToString = nums.map(function (n) {
+const numsToString = nums.map(function (n) {    // We save the step of declaring the callback function inside a variable. Instead, we declare the function that we
+                                                // want inside the map() method in the callback space
         return n.toString()
 })
 ```
 -----------OR----------------
 ```js
-const numsToString = nums.map((n) => n.toString())
+const numsToString = nums.map((n) => n.toString())  // Finally, we transform the callback function inside the map into a arrow function.
+                                                    // In this manner, we can save the curly braces, the return (if it's one line) and the "function" keyword
 ```
