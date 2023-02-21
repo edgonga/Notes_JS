@@ -262,3 +262,48 @@ const numsToString = nums.map(function (n) {    // We save the step of declaring
 const numsToString = nums.map((n) => n.toString())  // Finally, we transform the callback function inside the map into a arrow function.
                                                     // In this manner, we can save the curly braces, the return (if it's one line) and the "function" keyword
 ```
+
+## -----------------> Class
+
+Let's see an example of a class constructor encapsulated and with private propierties:
+
+```js
+class Car  {
+
+    #brand  // Mandatory to add the hash before to make it private
+    #model  // this means that outside the block we will not be able to see it neither modify
+    #color
+    constructor(brand, model, color) {
+        this.#brand = this.#validate( brand,  'Brand')  // Everytime that we are creating a new instace, the private 
+        this.#model = this.#validate(model, 'Model')    // function #validate will be called and its validations         
+        this.#color = this.#validate(color, 'Color')    // will be carried on 
+    }
+
+    #validate(value, name) {                            // Here, we are creating the private function that we mentioned
+        if (!value) throw Error(${name} can not be empty)
+        if (typeof value !== 'string') throw Error (${name} should be a string)
+        return value
+    }
+
+    getBrand () {
+        return this.#brand      // As it is a private propierty, is the only way that we can see outside the block
+    }                           // by running myCar.Brand will not work, instead, myCar.getBrand
+
+    getModel () {
+        return this.#model
+    }
+
+    getColor () {
+        return this.#color
+    }
+
+    setColor (color) {
+        this.#color = this.#validate(color, 'Color')    // As it is a private propierty, is the only way that we can see outside the block
+    }                                                   // but it's important to repeat the validation here
+                                                        // if not, at the moment of instancing a data number won't be accepted, but once is setted, a number will be accepted (which is not the behaviour expected)
+
+    driving() {
+        console.log('🚙')
+    }
+}
+```
