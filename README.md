@@ -307,3 +307,33 @@ class Car  {
     }
 }
 ```
+
+## -----------------> Package.json
+
+We can understand it as the place were we declare the instructions and details of the project.
+There are parameters which only have a naming character, but there are other that will have a functional impact.
+
+```
+{
+    "name": "my-awesome-package",  //Naming
+    "version": "1.0.0",  
+    "author": "Your Name <email@example.com>",  //Naming
+    "scripts": {                
+        "test": "jest"           // Every time that we put "npm run test" in the terminal, we have decided that "jest" will be run
+        "start": "node index.js" // Instead of typing node index.js every time that we want to check the output,
+                                 // we can add this line to the scripts and by adding "npm start" (without "run") 
+                                 // we will have the same impact. Take note that the main scripts such as start, stop,
+                                 // restart, install, version or test do not require run command
+    },
+    "dependencies": {            // In this spot, we will append all the external modules that are needed to be imported by someone who, 
+                                 // for example, has cloned the repository and to run properly has to add some external libraries or modules
+                                 // In this case, this project will be implemented if "jest" is imported, but, if we import jest, the node_modules
+                                 // folder will be created. However, we don't want to add this folder in the github repository, therefore,
+                                 // be add this folder in the .gitignore and like this we will not overweight the size of the project. 
+                                 // Only by scripting "npm i" all the modules in "dependencies" will be initialized
+        "jest": "^29.5.0"
+    }
+}
+
+
+```js
