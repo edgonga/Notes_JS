@@ -82,7 +82,7 @@ module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
   };
-```js
+```
 
 
 Finally, we will be able to run our test in the common way that we have been doing with JS:
