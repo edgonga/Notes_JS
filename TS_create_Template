@@ -1,2 +1,5 @@
 In order to create in a fast but completed way a Typescript template with server and client side, we will have to proceed as follows:
 
+```
+npm create vite@latest
+```js
