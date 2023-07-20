@@ -3,3 +3,10 @@ In order to create in a fast but completed way a Typescript template with server
 ```
 npm create vite@latest
 ```js
+
+
+Once this command is run, some question to set up the project will be done
+
+Regarding the frontend and backend languages to use (React + Typescript SWC)
+
+Then, we will have to go inside the project folder (src in my case) and run "npm i" to download the dependencies correctly
